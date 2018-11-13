@@ -89,7 +89,7 @@ var OpToHtmlConverter = (function () {
         if (this.options.inlineStyles) {
             return [];
         }
-        var propsArr = ['indent', 'align', 'direction', 'font', 'size'];
+        var propsArr = ['indent', 'align', 'direction', 'font', 'size', 'float'];
         if (this.options.allowBackgroundClasses) {
             propsArr.push('background');
         }
@@ -205,7 +205,7 @@ var OpToHtmlConverter = (function () {
         var blocks = [['blockquote'], ['code-block', 'pre'],
             ['list', this.options.listItemTag], ['header'],
             ['align', positionTag], ['direction', positionTag],
-            ['indent', positionTag]];
+            ['indent', positionTag], ['float', positionTag]];
         for (var _i = 0, blocks_1 = blocks; _i < blocks_1.length; _i++) {
             var item = blocks_1[_i];
             var firstItem = item[0];

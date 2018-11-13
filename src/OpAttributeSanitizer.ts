@@ -1,5 +1,5 @@
 
-import { ListType, AlignType, DirectionType, ScriptType } from './value-types';
+import { ListType, AlignType, DirectionType, ScriptType, FloatType } from './value-types';
 import { MentionSanitizer } from "./mentions/MentionSanitizer";
 import * as url from './helpers/url';
 import {encodeLink} from "./funcs-html";
@@ -26,6 +26,7 @@ interface IOpAttributes {
    'code-block'?: boolean | undefined,
    header?: number | undefined,
    align?: AlignType,
+   float?: FloatType,
    direction?: DirectionType,
    indent?: number | undefined,
 
@@ -60,13 +61,13 @@ class OpAttributeSanitizer {
 
       let colorAttrs = ['background', 'color'];
 
-      let { font, size, link, script, list, header, align,
+      let { font, size, link, script, list, header, align, float,
          direction, indent, mentions, mention, width, target
       } = dirtyAttrs;
 
       let sanitizedAttrs = [...booleanAttrs, ...colorAttrs,
          'font', 'size', 'link', 'script', 'list', 'header', 'align',
-         'direction', 'indent', 'mentions', 'mention', 'width'
+         'direction', 'indent', 'mentions', 'mention', 'width', 'float'
       ];
       booleanAttrs.forEach(function (prop: string) {
          var v = (<any>dirtyAttrs)[prop];
@@ -117,6 +118,10 @@ class OpAttributeSanitizer {
 
       if (align === AlignType.Center || align === AlignType.Right || align === AlignType.Justify) {
          cleanAttrs.align = align;
+      }
+
+      if (float === FloatType.Center || float === FloatType.Right || float === FloatType.Left) {
+         cleanAttrs.float = float;
       }
 
       if (direction === DirectionType.Rtl) {

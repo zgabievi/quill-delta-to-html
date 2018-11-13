@@ -233,9 +233,9 @@ var OpAttributeSanitizer = (function () {
             'blockquote', 'code-block', 'renderAsBlock'
         ];
         var colorAttrs = ['background', 'color'];
-        var font = dirtyAttrs.font, size = dirtyAttrs.size, link = dirtyAttrs.link, script = dirtyAttrs.script, list = dirtyAttrs.list, header = dirtyAttrs.header, align = dirtyAttrs.align, direction = dirtyAttrs.direction, indent = dirtyAttrs.indent, mentions = dirtyAttrs.mentions, mention = dirtyAttrs.mention, width = dirtyAttrs.width, target = dirtyAttrs.target;
+        var font = dirtyAttrs.font, size = dirtyAttrs.size, link = dirtyAttrs.link, script = dirtyAttrs.script, list = dirtyAttrs.list, header = dirtyAttrs.header, align = dirtyAttrs.align, float = dirtyAttrs.float, direction = dirtyAttrs.direction, indent = dirtyAttrs.indent, mentions = dirtyAttrs.mentions, mention = dirtyAttrs.mention, width = dirtyAttrs.width, target = dirtyAttrs.target;
         var sanitizedAttrs = booleanAttrs.concat(colorAttrs, ['font', 'size', 'link', 'script', 'list', 'header', 'align',
-            'direction', 'indent', 'mentions', 'mention', 'width']);
+            'direction', 'indent', 'mentions', 'mention', 'width', 'float']);
         booleanAttrs.forEach(function (prop) {
             var v = dirtyAttrs[prop];
             if (v) {
@@ -276,6 +276,9 @@ var OpAttributeSanitizer = (function () {
         }
         if (align === value_types_1.AlignType.Center || align === value_types_1.AlignType.Right || align === value_types_1.AlignType.Justify) {
             cleanAttrs.align = align;
+        }
+        if (float === value_types_1.FloatType.Center || float === value_types_1.FloatType.Right || float === value_types_1.FloatType.Left) {
+            cleanAttrs.float = float;
         }
         if (direction === value_types_1.DirectionType.Rtl) {
             cleanAttrs.direction = direction;
@@ -426,7 +429,7 @@ var OpToHtmlConverter = (function () {
         if (this.options.inlineStyles) {
             return [];
         }
-        var propsArr = ['indent', 'align', 'direction', 'font', 'size'];
+        var propsArr = ['indent', 'align', 'direction', 'font', 'size', 'float'];
         if (this.options.allowBackgroundClasses) {
             propsArr.push('background');
         }
@@ -542,7 +545,7 @@ var OpToHtmlConverter = (function () {
         var blocks = [['blockquote'], ['code-block', 'pre'],
             ['list', this.options.listItemTag], ['header'],
             ['align', positionTag], ['direction', positionTag],
-            ['indent', positionTag]];
+            ['indent', positionTag], ['float', positionTag]];
         for (var _i = 0, blocks_1 = blocks; _i < blocks_1.length; _i++) {
             var item = blocks_1[_i];
             var firstItem = item[0];
@@ -1278,7 +1281,7 @@ exports.MentionSanitizer = MentionSanitizer;
 },{"./../OpAttributeSanitizer":5}],17:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var NewLine = "\n";
+var NewLine = '\n';
 exports.NewLine = NewLine;
 var ListType;
 (function (ListType) {
@@ -1314,7 +1317,6 @@ var DataType;
     DataType["Text"] = "text";
 })(DataType || (DataType = {}));
 exports.DataType = DataType;
-;
 var GroupType;
 (function (GroupType) {
     GroupType["Block"] = "block";
@@ -1323,7 +1325,13 @@ var GroupType;
     GroupType["Video"] = "video";
 })(GroupType || (GroupType = {}));
 exports.GroupType = GroupType;
-;
+var FloatType;
+(function (FloatType) {
+    FloatType["Center"] = "center";
+    FloatType["Right"] = "right";
+    FloatType["Left"] = "Left";
+})(FloatType || (FloatType = {}));
+exports.FloatType = FloatType;
 
 },{}]},{},[7])(7)
 });

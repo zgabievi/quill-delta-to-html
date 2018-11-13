@@ -9,6 +9,7 @@ export interface IInlineStyles {
     direction?: InlineStyleType;
     font?: InlineStyleType;
     size?: InlineStyleType;
+    float?: InlineStyleType;
 }
 export declare const DEFAULT_INLINE_STYLES: IInlineStyles;
 interface IOpToHtmlConverterOptions {

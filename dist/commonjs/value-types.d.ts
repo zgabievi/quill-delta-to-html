@@ -1,4 +1,4 @@
-declare type NewLine = "\n";
+declare type NewLine = '\n';
 declare const NewLine: "\n";
 declare enum ListType {
     Ordered = "ordered",
@@ -30,4 +30,9 @@ declare enum GroupType {
     List = "list",
     Video = "video"
 }
-export { NewLine, ListType, ScriptType, DirectionType, AlignType, DataType, GroupType };
+declare enum FloatType {
+    Center = "center",
+    Right = "right",
+    Left = "Left"
+}
+export { NewLine, ListType, ScriptType, DirectionType, AlignType, DataType, GroupType, FloatType };

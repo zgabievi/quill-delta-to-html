@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var NewLine = "\n";
+var NewLine = '\n';
 exports.NewLine = NewLine;
 var ListType;
 (function (ListType) {
@@ -36,7 +36,6 @@ var DataType;
     DataType["Text"] = "text";
 })(DataType || (DataType = {}));
 exports.DataType = DataType;
-;
 var GroupType;
 (function (GroupType) {
     GroupType["Block"] = "block";
@@ -45,4 +44,10 @@ var GroupType;
     GroupType["Video"] = "video";
 })(GroupType || (GroupType = {}));
 exports.GroupType = GroupType;
-;
+var FloatType;
+(function (FloatType) {
+    FloatType["Center"] = "center";
+    FloatType["Right"] = "right";
+    FloatType["Left"] = "Left";
+})(FloatType || (FloatType = {}));
+exports.FloatType = FloatType;

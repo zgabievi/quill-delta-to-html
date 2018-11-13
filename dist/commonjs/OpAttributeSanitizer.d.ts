@@ -1,4 +1,4 @@
-import { ListType, AlignType, DirectionType, ScriptType } from './value-types';
+import { ListType, AlignType, DirectionType, ScriptType, FloatType } from './value-types';
 import { IMention } from "./mentions/MentionSanitizer";
 interface IOpAttributes {
     background?: string | undefined;
@@ -18,6 +18,7 @@ interface IOpAttributes {
     'code-block'?: boolean | undefined;
     header?: number | undefined;
     align?: AlignType;
+    float?: FloatType;
     direction?: DirectionType;
     indent?: number | undefined;
     mentions?: boolean | undefined;

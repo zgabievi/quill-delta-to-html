@@ -13,7 +13,8 @@ export interface IInlineStyles {
    align?: InlineStyleType,
    direction?: InlineStyleType,
    font?: InlineStyleType,
-   size?: InlineStyleType
+   size?: InlineStyleType,
+   float?: InlineStyleType
 };
 
 const DEFAULT_INLINE_FONTS : {[key: string]: string} = {
@@ -140,7 +141,7 @@ class OpToHtmlConverter {
             return [];
       }
 
-      var propsArr = ['indent', 'align', 'direction', 'font', 'size'];
+      var propsArr = ['indent', 'align', 'direction', 'font', 'size', 'float'];
       if (this.options.allowBackgroundClasses) {
          propsArr.push('background');
       }
@@ -284,7 +285,7 @@ class OpToHtmlConverter {
       var blocks = [['blockquote'], ['code-block', 'pre'],
       ['list', this.options.listItemTag], ['header'],
       ['align', positionTag], ['direction', positionTag],
-      ['indent', positionTag]];
+      ['indent', positionTag], ['float', positionTag]];
       for (var item of blocks) {
          var firstItem = item[0]!
          if (attrs[firstItem]) {

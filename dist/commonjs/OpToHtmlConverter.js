@@ -115,7 +115,8 @@ var OpToHtmlConverter = (function () {
                 ['align', 'text-align'],
                 ['direction'],
                 ['font', 'font-family'],
-                ['size']
+                ['size'],
+                ['float']
             ]);
         }
         return propsArr

@@ -168,7 +168,8 @@ class OpToHtmlConverter {
                ['align', 'text-align'],
                ['direction'],
                ['font', 'font-family'],
-               ['size']
+               ['size'],
+               ['float']
          ]);
       }
 

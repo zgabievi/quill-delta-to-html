@@ -24,7 +24,7 @@ class DeltaInsertOp {
       var attrs = this.attributes;
       return !!(
          attrs.blockquote || attrs.list || attrs['code-block'] ||
-         attrs.header || attrs.align || attrs.direction || attrs.indent);
+         attrs.header || attrs.align || attrs.float || attrs.direction || attrs.indent);
    }
 
    isBlockquote(): boolean {
